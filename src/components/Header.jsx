@@ -1,8 +1,10 @@
+import logo from '../assets/calendar.svg'
+
 export default function Header() {
     return (
-        <div>
-            <img src="../public/calendar.svg" alt="App Logo" />
-            <h1>Course Planner</h1>
+        <div className="flex flex-col items-center mt-8 mb-8">
+            <img className="w-44 h-auto mb-4" src={logo} alt="App Logo" />
+            <h1 className="text-center text-xl md:text-4xl">Course Planner</h1>
         </div>
-    )
+    );
 }
