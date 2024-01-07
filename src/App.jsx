@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <Header />
-      <Calendar />
+      <section className='size-4/5 mx-auto mt-24'>
+        <Calendar />
+      </section>
     </>
   )
 }
