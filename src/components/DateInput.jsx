@@ -3,7 +3,10 @@ export default function DateInput() {
         <section className="flex items-center justify-evenly bg-white bg-opacity-50 w-3/4 mx-auto rounded-md p-4">
             <div>
                 <label htmlFor="title" className="mb-3 text-2xl text-center block">Título</label>
-                <input type="text" id="title" className="text-xl rounded-md p-2 bg-slate-900 bg-opacity-50 text-white" />
+                <input type="text" id="title"
+                    placeholder="Agrega un evento..."
+                    className="text-xl rounded-md p-2 bg-slate-900 bg-opacity-50 text-white"
+                />
             </div>
 
             <div>
@@ -20,7 +23,9 @@ export default function DateInput() {
             </div>
             <div>
                 <label htmlFor="time" className="mb-3 text-2xl text-center block">Hora</label>
-                <input type="time" id="time" className="text-xl rounded-md p-2 bg-slate-900 bg-opacity-50 text-white" />
+                <input type="time" id="time"
+                    className="text-xl rounded-md p-2 bg-slate-900 bg-opacity-50 text-white"
+                />
             </div>
             <button type="submit" className="h-10 rounded-md bg-sky-950 px-3.5 py-1.5 text-xl font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                 Agregar
