@@ -14,7 +14,7 @@ export default function Calendar() {
                     { title: 'event 2', date: '2024-01-08' }
                 ]}
                 headerToolbar={false}
-                aspectRatio={2.5}
+                aspectRatio={2}
                 dayHeaderFormat={{ weekday: 'long' }}
                 editable={true}
                 selectable={true}
