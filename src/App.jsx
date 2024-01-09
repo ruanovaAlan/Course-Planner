@@ -52,7 +52,7 @@ function App() {
       </section>
 
       <section className='xs:h-auto xs:text-sm  sm:size-11/12 lg:size-5/6 mx-auto mt-6 
-      xl:mb-6 xs:mb-6 rounded-lg bg-white opacity-70 font-body shadow-xl'>
+      xl:mb-6 xs:mb-6 rounded-lg bg-white opacity-80 font-body shadow-xl'>
         <Calendar eventList={events} />
       </section>
     </>
