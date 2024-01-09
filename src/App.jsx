@@ -51,7 +51,7 @@ function App() {
         <EventList events={events} onDeleteEvent={handleDeleteEvent} />
       </section>
 
-      <section className='size-5/6 mx-auto mt-6 rounded-lg bg-white opacity-70 font-body'>
+      <section className='xs:h-auto xs:text-sm  sm:size-11/12 lg:size-5/6 mx-auto mt-6 xl:mb-6 xs:mb-6 rounded-lg bg-white opacity-70 font-body'>
         <Calendar eventList={events} />
       </section>
     </>

@@ -4,7 +4,12 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import esLocale from '@fullcalendar/core/locales/es'
 
+import { useAspectRatio } from '../hooks/useAspectRatio'
+
 export default function Calendar({ eventList }) {
+
+    const { aspectRatio } = useAspectRatio();
+
     return (
         <>
             <FullCalendar
@@ -12,7 +17,7 @@ export default function Calendar({ eventList }) {
                 initialView="timeGridWeek"
                 events={eventList}
                 headerToolbar={false}
-                aspectRatio={2}
+                aspectRatio={aspectRatio}
                 dayHeaderFormat={{ weekday: 'long' }}
                 editable={true}
                 selectable={true}
@@ -22,6 +27,8 @@ export default function Calendar({ eventList }) {
                 slotMaxTime="21:00:00"
                 allDaySlot={false}
                 locale={esLocale}
+                handleWindowResize={true}
+                stickyFooterScrollbar={true}
 
             />
         </>
