@@ -27,7 +27,7 @@ export default function DateInput({ onAddEvent }) {
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-wrap items-center justify-evenly 
-        bg-white bg-opacity-50 w-5/6 mx-auto rounded-md p-4 font-body">
+        bg-white bg-opacity-50 w-5/6 mx-auto rounded-md p-4 font-body shadow-lg">
             <div>
                 <label htmlFor="title" className="mb-3 text-xl text-center block font-bold">Título</label>
                 <input ref={titleRef} type="text" id="title"
