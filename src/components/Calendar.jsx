@@ -5,7 +5,6 @@ import interactionPlugin from '@fullcalendar/interaction'
 import esLocale from '@fullcalendar/core/locales/es'
 
 export default function Calendar({ eventList }) {
-    console.log(eventList);
     return (
         <>
             <FullCalendar
