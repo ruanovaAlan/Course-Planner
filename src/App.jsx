@@ -22,7 +22,7 @@ function App() {
         <EventList events={events} />
       </section>
       <section className='size-4/5 mx-auto mt-8 bg-white opacity-70 '>
-        <Calendar />
+        <Calendar eventList={events} />
       </section>
     </>
   )

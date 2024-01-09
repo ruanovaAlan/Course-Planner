@@ -3,20 +3,14 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 
-export default function Calendar() {
+export default function Calendar({ eventList }) {
+    console.log(eventList);
     return (
         <>
             <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView="timeGridWeek"
-                events={[
-                    {
-                        title: 'Hola',
-                        daysOfWeek: [0],
-                        startTime: '10:00',
-                        endTime: '13:00'
-                    }
-                ]}
+                events={eventList}
                 headerToolbar={false}
                 aspectRatio={2}
                 dayHeaderFormat={{ weekday: 'long' }}
@@ -28,3 +22,4 @@ export default function Calendar() {
         </>
     )
 }
+

@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 export default function DateInput({ onAddEvent }) {
     const titleRef = useRef();
-    const dayOfWeekRef = useRef();
+    const daysOfWeekRef = useRef();
     const startTimeRef = useRef();
     const endTimeRef = useRef();
 
@@ -10,7 +10,7 @@ export default function DateInput({ onAddEvent }) {
         event.preventDefault();
         const newEvent = {
             title: titleRef.current.value,
-            dayOfWeek: dayOfWeekRef.current.value,
+            daysOfWeek: [+daysOfWeekRef.current.value],
             startTime: startTimeRef.current.value,
             endTime: endTimeRef.current.value,
         }
@@ -30,7 +30,7 @@ export default function DateInput({ onAddEvent }) {
 
             <div>
                 <label htmlFor="day-of-week" className="mb-3 text-xl text-center block">Día</label>
-                <select ref={dayOfWeekRef} name="" id="day-of-week" className=" rounded-md p-2 bg-slate-900 bg-opacity-50 text-white">
+                <select ref={daysOfWeekRef} name="" id="day-of-week" className=" rounded-md p-2 bg-slate-900 bg-opacity-50 text-white">
                     <option value="1">Lunes</option>
                     <option value="2">Martes</option>
                     <option value="3">Miércoles</option>
