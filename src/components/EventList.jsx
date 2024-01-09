@@ -11,7 +11,7 @@ export default function EventList({ events, onDeleteEvent }) {
     const renderEvents = (
         <ul role="list" className="text-white divide-y divide-gray-100">
             {events.map((event, index) => (
-                <li key={index} className="flex justify-between items-center gap-x-2 py-3">
+                <li key={index} className="flex justify-between items-center gap-x-2 py-3 font-body">
                     <div className="min-w-0 flex-auto ms-4 ">
                         <p className="text-md font-semibold leading-6 ">{event.title}</p>
                     </div>
@@ -33,7 +33,7 @@ export default function EventList({ events, onDeleteEvent }) {
 
     return (
         <>
-            {!events.length ? <p className="text-2xl text-center text-white">No hay eventos</p> : renderEvents}
+            {!events.length ? <p className="text-2xl text-center text-white font-body font-bold">No hay eventos</p> : renderEvents}
         </>
     )
 }

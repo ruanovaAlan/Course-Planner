@@ -36,18 +36,22 @@ function App() {
   return (
     <>
       <Header />
+
       <DateInput onAddEvent={addEvent} />
-      <div className='mt-3 w-5/6 mx-auto'>
+
+      <div className='mt-6 w-5/6 mx-auto'>
         <button onClick={clearEvents}
-          className="h-10 rounded-md bg-sky-950 px-3.5 py-1.5 text-sm font-semibold 
+          className="h-10 rounded-md bg-sky-950 px-3.5 py-1.5 text-sm font-medium 
         text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 
-        focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+        focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body"
         >Limpiar Eventos</button>
       </div>
-      <section className='w-4/5 mx-auto mt-8 p-2 bg-stone-950 opacity-50 rounded-lg'>
+
+      <section className='w-4/5 mx-auto mt-6 p-2 bg-stone-950 opacity-50 rounded-md'>
         <EventList events={events} onDeleteEvent={handleDeleteEvent} />
       </section>
-      <section className='size-4/5 mx-auto mt-8 bg-white opacity-70 '>
+
+      <section className='size-5/6 mx-auto mt-6 rounded-lg bg-white opacity-70 font-body'>
         <Calendar eventList={events} />
       </section>
     </>

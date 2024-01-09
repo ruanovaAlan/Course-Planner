@@ -23,6 +23,7 @@ export default function Calendar({ eventList }) {
                 slotMaxTime="21:00:00"
                 allDaySlot={false}
                 locale={esLocale}
+
             />
         </>
     )
