@@ -69,8 +69,8 @@ export default function DateInput({ onAddEvent }) {
                 />
             </div>
             <button type="submit" className="h-10 w-10 rounded-full bg-sky-950  text-2xl font-extrabold
-            text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 
-            focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+            text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 
+            focus-visible:outline-offset-2 focus-visible:outline-lime-500">
                 +
             </button>
         </form>
