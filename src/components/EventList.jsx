@@ -10,7 +10,7 @@ export default function EventList({ events }) {
                         <p className="text-md font-semibold leading-6 ">{event.title}</p>
                     </div>
                     <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end me-4">
-                        <p className="text-md leading-6 ">Día: {dayName[event.dayOfWeek]}</p>
+                        <p className="text-md leading-6 ">Día: {dayName[event.daysOfWeek]}</p>
                         <p className="mt-1 text-sm leading-5 text-gray-300">Duración: {event.startTime} - {event.endTime}</p>
                     </div>
                 </li>

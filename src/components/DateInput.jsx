@@ -15,7 +15,7 @@ export default function DateInput({ onAddEvent }) {
             endTime: endTimeRef.current.value,
         }
         onAddEvent(newEvent);
-        console.log(newEvent);
+
     }
 
     return (
@@ -52,7 +52,9 @@ export default function DateInput({ onAddEvent }) {
                     className="rounded-md p-2 text-sm bg-slate-900 bg-opacity-50 text-white"
                 />
             </div>
-            <button type="submit" className="h-10 rounded-md bg-sky-950 px-3.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+            <button type="submit" className="h-10 rounded-md bg-sky-950 px-3.5 py-1.5 text-sm font-semibold 
+            text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 
+            focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                 Agregar
             </button>
         </form>
