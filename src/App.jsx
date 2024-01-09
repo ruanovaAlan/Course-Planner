@@ -20,6 +20,12 @@ function App() {
     });
   }
 
+  const handleDeleteEvent = (index) => {
+    const newEvents = [...events];
+    newEvents.splice(index, 1);
+    setEvents(newEvents);
+  }
+
   const clearEvents = () => {
     setEvents([]);
     window.localStorage.removeItem('events');
@@ -38,7 +44,7 @@ function App() {
         >Limpiar Eventos</button>
       </div>
       <section className='w-4/5 mx-auto mt-8 p-2 bg-stone-950 opacity-50 rounded-lg'>
-        <EventList events={events} />
+        <EventList events={events} onDeleteEvent={handleDeleteEvent} />
       </section>
       <section className='size-4/5 mx-auto mt-8 bg-white opacity-70 '>
         <Calendar eventList={events} />

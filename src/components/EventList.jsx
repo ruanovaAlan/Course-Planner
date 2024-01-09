@@ -1,6 +1,11 @@
-export default function EventList({ events }) {
+
+export default function EventList({ events, onDeleteEvent }) {
 
     const dayName = { 0: 'Domingo', 1: 'Lunes', 2: 'Martes', 3: 'Miércoles', 4: 'Jueves', 5: 'Viernes', 6: 'Sábado' }
+
+    const handleDelete = (index) => {
+        onDeleteEvent(index);
+    }
 
     const renderEvents = (
         <ul role="list" className="text-white divide-y divide-gray-100">
@@ -13,6 +18,9 @@ export default function EventList({ events }) {
                         <p className="text-md leading-6 ">Día: {dayName[event.daysOfWeek]}</p>
                         <p className="mt-1 text-sm leading-5 text-gray-300">Duración: {event.startTime} - {event.endTime}</p>
                     </div>
+                    <div>
+                        <button onClick={() => handleDelete(index)}>❌</button>
+                    </div>
                 </li>
             ))}
         </ul >
@@ -24,3 +32,5 @@ export default function EventList({ events }) {
         </>
     )
 }
+
+
