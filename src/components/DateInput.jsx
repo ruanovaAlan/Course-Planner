@@ -16,6 +16,11 @@ export default function DateInput({ onAddEvent }) {
         }
         onAddEvent(newEvent);
 
+        titleRef.current.value = '';
+        daysOfWeekRef.current.value = '1';
+        startTimeRef.current.value = '';
+        endTimeRef.current.value = '';
+
     }
 
     return (

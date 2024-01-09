@@ -2,6 +2,7 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
+import esLocale from '@fullcalendar/core/locales/es'
 
 export default function Calendar({ eventList }) {
     console.log(eventList);
@@ -18,6 +19,10 @@ export default function Calendar({ eventList }) {
                 selectable={true}
                 selectMirror={true}
                 dayMaxEvents={true}
+                slotMinTime="07:00:00"
+                slotMaxTime="21:00:00"
+                allDaySlot={false}
+                locale={esLocale}
             />
         </>
     )
