@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { randomColor } from '../utility/RandomColor.js'
 
 export default function DateInput({ onAddEvent }) {
     const titleRef = useRef();
@@ -13,6 +14,7 @@ export default function DateInput({ onAddEvent }) {
             daysOfWeek: [+daysOfWeekRef.current.value],
             startTime: startTimeRef.current.value,
             endTime: endTimeRef.current.value,
+            color: randomColor()
         }
         onAddEvent(newEvent);
 
@@ -30,12 +32,16 @@ export default function DateInput({ onAddEvent }) {
                 <input ref={titleRef} type="text" id="title"
                     placeholder="Agrega un evento..."
                     className="rounded-md p-2 bg-slate-900 bg-opacity-50 text-white"
+                    required
                 />
             </div>
 
             <div>
                 <label htmlFor="day-of-week" className="mb-3 text-xl text-center block">Día</label>
-                <select ref={daysOfWeekRef} name="" id="day-of-week" className=" rounded-md p-2 bg-slate-900 bg-opacity-50 text-white">
+                <select ref={daysOfWeekRef} name="" id="day-of-week"
+                    className=" rounded-md p-2 bg-slate-900 bg-opacity-50 text-white"
+                    required
+                >
                     <option value="1">Lunes</option>
                     <option value="2">Martes</option>
                     <option value="3">Miércoles</option>
@@ -46,15 +52,19 @@ export default function DateInput({ onAddEvent }) {
                 </select>
             </div>
             <div>
-                <label htmlFor="time" className="mb-3 text-xl text-center block">Inicio</label>
-                <input ref={startTimeRef} type="time" id="time"
+                <label htmlFor="startTime" className="mb-3 text-xl text-center block">Inicio</label>
+                <input ref={startTimeRef} type="time" id="startTime"
                     className="rounded-md p-2 text-sm bg-slate-900 bg-opacity-50 text-white"
+                    min="07:00" max="20:30"
+                    required
                 />
             </div>
             <div>
-                <label htmlFor="time" className="mb-3 text-xl text-center block">Fin</label>
-                <input ref={endTimeRef} type="time" id="time"
+                <label htmlFor="endTime" className="mb-3 text-xl text-center block">Fin</label>
+                <input ref={endTimeRef} type="time" id="endTime"
                     className="rounded-md p-2 text-sm bg-slate-900 bg-opacity-50 text-white"
+                    min="07:00" max="20:30"
+                    required
                 />
             </div>
             <button type="submit" className="h-10 rounded-md bg-sky-950 px-3.5 py-1.5 text-sm font-semibold 
