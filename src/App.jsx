@@ -24,6 +24,7 @@ function App() {
     const newEvents = [...events];
     newEvents.splice(index, 1);
     setEvents(newEvents);
+    window.localStorage.setItem('events', JSON.stringify(newEvents));
   }
 
   const clearEvents = () => {
