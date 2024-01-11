@@ -1,16 +1,11 @@
 import { useRef } from "react";
 import { randomColor } from '../utility/RandomColor.js'
-import DaysDropdown from "./DaysDropdown.jsx";
 
 export default function DateInput({ onAddEvent }) {
     const titleRef = useRef();
     const daysOfWeekRef = useRef();
     const startTimeRef = useRef();
     const endTimeRef = useRef();
-
-
-
-
 
 
     const handleSubmit = (event) => {
@@ -49,9 +44,6 @@ export default function DateInput({ onAddEvent }) {
 
             <div>
                 <label htmlFor="day-of-week" className="mb-3 text-xl text-center block font-bold">Día(s)</label>
-                {/* <DaysDropdown>
-
-                </DaysDropdown> */}
                 <select ref={daysOfWeekRef} id="day-of-week"
                     className=" rounded-md p-2 bg-slate-900 bg-opacity-50 text-white"
                     required

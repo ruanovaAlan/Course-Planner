@@ -2,7 +2,7 @@ import trashIcon from '../assets/trash-icon.svg';
 
 export default function EventList({ events, onDeleteEvent }) {
 
-    const dayName = { 0: 'Domingo', 1: 'Lunes', 2: 'Martes', 3: 'Miércoles', 4: 'Jueves', 5: 'Viernes', 6: 'Sábado' }
+    const dayName = { 0: 'Do', 1: 'Lu', 2: 'Ma', 3: 'Mi', 4: 'Ju', 5: 'Vi', 6: 'Sá' }
 
     const handleDelete = (index) => {
         onDeleteEvent(index);
@@ -16,7 +16,7 @@ export default function EventList({ events, onDeleteEvent }) {
                         <p className="text-md font-semibold leading-6 ">{event.title}</p>
                     </div>
                     <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-start  ">
-                        <p className="text-md leading-6 ">Día: {dayName[event.daysOfWeek]}</p>
+                        <p className="text-md leading-6 ">Día(s): {event.daysOfWeek.map((day) => dayName[day]).join(', ')}</p>
                         <p className="mt-1 text-sm leading-5 text-gray-300">Duración: {event.startTime} - {event.endTime}</p>
                     </div>
                     <div className="flex items-center">
