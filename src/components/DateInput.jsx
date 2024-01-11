@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { randomColor } from '../utility/RandomColor.js'
+import DaysDropdown from "./DaysDropdown.jsx";
 
 export default function DateInput({ onAddEvent }) {
     const titleRef = useRef();
@@ -7,16 +8,25 @@ export default function DateInput({ onAddEvent }) {
     const startTimeRef = useRef();
     const endTimeRef = useRef();
 
+
+
+
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        const selectedDays = Array.from(daysOfWeekRef.current.selectedOptions, option => +option.value);
+
         const newEvent = {
             title: titleRef.current.value,
-            daysOfWeek: [+daysOfWeekRef.current.value],
+            daysOfWeek: selectedDays,
             startTime: startTimeRef.current.value,
             endTime: endTimeRef.current.value,
             color: randomColor()
         }
         onAddEvent(newEvent);
+        console.log(selectedDays)
 
         titleRef.current.value = '';
         daysOfWeekRef.current.value = '1';
@@ -38,10 +48,14 @@ export default function DateInput({ onAddEvent }) {
             </div>
 
             <div>
-                <label htmlFor="day-of-week" className="mb-3 text-xl text-center block font-bold">Día</label>
-                <select ref={daysOfWeekRef} name="" id="day-of-week"
+                <label htmlFor="day-of-week" className="mb-3 text-xl text-center block font-bold">Día(s)</label>
+                {/* <DaysDropdown>
+
+                </DaysDropdown> */}
+                <select ref={daysOfWeekRef} id="day-of-week"
                     className=" rounded-md p-2 bg-slate-900 bg-opacity-50 text-white"
                     required
+                    multiple
                 >
                     <option value="1">Lunes</option>
                     <option value="2">Martes</option>
@@ -52,6 +66,10 @@ export default function DateInput({ onAddEvent }) {
                     <option value="0">Domingo</option>
                 </select>
             </div>
+
+
+
+
             <div>
                 <label htmlFor="startTime" className="mb-3 text-xl text-center block font-bold">Inicio</label>
                 <input ref={startTimeRef} type="time" id="startTime"
