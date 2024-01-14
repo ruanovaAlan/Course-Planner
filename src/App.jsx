@@ -2,6 +2,7 @@ import Header from './components/Header'
 import Calendar from './components/Calendar'
 import DateInput from './components/DateInput'
 import EventList from './components/EventList'
+import Footer from './components/Footer'
 
 import { useState } from 'react'
 
@@ -54,6 +55,10 @@ function App() {
       <section className='xs:h-auto xs:text-sm  sm:size-11/12 lg:size-5/6 mx-auto mt-6 
       xl:mb-6 xs:mb-6 rounded-lg bg-white opacity-80 font-body shadow-xl'>
         <Calendar eventList={events} />
+      </section>
+
+      <section className='my-6 flex justify-end pe-8'>
+        <Footer />
       </section>
     </>
   )
