@@ -11,7 +11,7 @@ export default function Calendar({ eventList }) {
     const { aspectRatio } = useAspectRatio();
 
     return (
-        <>
+        <div style={{ minWidth: '600px' }}>
             <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView="timeGridWeek"
@@ -19,8 +19,6 @@ export default function Calendar({ eventList }) {
                 headerToolbar={false}
                 aspectRatio={aspectRatio}
                 dayHeaderFormat={{ weekday: 'long' }}
-                editable={true}
-                selectable={true}
                 selectMirror={true}
                 dayMaxEvents={true}
                 slotMinTime="07:00:00"
@@ -31,7 +29,7 @@ export default function Calendar({ eventList }) {
                 stickyFooterScrollbar={true}
 
             />
-        </>
+        </div>
     )
 }
 

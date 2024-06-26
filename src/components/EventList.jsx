@@ -15,7 +15,7 @@ export default function EventList({ events, onDeleteEvent }) {
                     <div className="min-w-0 flex-auto ms-4 ">
                         <p className="text-md font-semibold leading-6 ">{event.title}</p>
                     </div>
-                    <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-start  ">
+                    <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-start  pe-10">
                         <p className="text-md leading-6 ">Día(s): {event.daysOfWeek.map((day) => dayName[day]).join(', ')}</p>
                         <p className="mt-1 text-sm leading-5 text-gray-300">Duración: {event.startTime} - {event.endTime}</p>
                     </div>
