@@ -2,6 +2,8 @@ import { useState } from "react";
 import Select from 'react-select';
 import { randomColor } from '../utility/RandomColor.js'
 import { weekDays, select_styles } from '../utility/SelectConfig.js'
+import { v4 as uuidv4 } from 'uuid';
+
 
 export default function DateInput({ onAddEvent }) {
     const [event, setEvent] = useState({
@@ -9,8 +11,10 @@ export default function DateInput({ onAddEvent }) {
         daysOfWeek: [],
         startTime: '',
         endTime: '',
-        color: randomColor()
+        color: randomColor(),
+        id: uuidv4()
     })
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -37,17 +41,20 @@ export default function DateInput({ onAddEvent }) {
             daysOfWeek: daysArray,
             startTime: event.startTime,
             endTime: event.endTime,
-            color: randomColor()
+            color: event.color,
+            id: event.id
         }
-        onAddEvent(newEvent);
 
+        onAddEvent(newEvent)
         setEvent({
             title: '',
             daysOfWeek: [],
             startTime: '',
             endTime: '',
-            color: randomColor()
+            color: randomColor(),
+            id: uuidv4()
         })
+
 
     }
 
@@ -99,10 +106,8 @@ export default function DateInput({ onAddEvent }) {
                 </div>
             </div>
 
-            <button type="submit" className="h-16 w-16 md:h-10 md:w-10 mt-3 rounded-full bg-sky-950  text-4xl md:text-2xl font-extrabold
-            text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 
-            focus-visible:outline-offset-2 focus-visible:outline-lime-500">
-                +
+            <button type="submit" className="flex items-center" >
+                <span className="lets-icons--check-fill"></span>
             </button>
         </form>
     )

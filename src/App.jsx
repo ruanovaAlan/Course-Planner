@@ -3,19 +3,35 @@ import Calendar from './components/Calendar'
 import DateInput from './components/DateInput'
 import EventList from './components/EventList'
 import Footer from './components/Footer'
+import EditEventModal from './components/EditEventModal'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
+  const [events, setEvents] = useState([]);
 
-  const [events, setEvents] = useState(() => {
-    const eventsFromStorage = window.localStorage.getItem('events');
-    return eventsFromStorage ? JSON.parse(eventsFromStorage) : []
-  })
+  useEffect(() => {
+    const storedEvents = JSON.parse(window.localStorage.getItem('events'));
+    if (storedEvents) {
+      setEvents(storedEvents);
+    }
+  }, []);
 
-  const addEvent = (newEvent) => {
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const addEvent = (NewEvent) => {
     setEvents(prevEvents => {
-      const updatedEvents = [...prevEvents, newEvent];
+      const updatedEvents = [...prevEvents, NewEvent];
+      window.localStorage.setItem('events', JSON.stringify(updatedEvents));
+      return updatedEvents;
+    });
+  }
+
+  const editEvent = (updatedEvent) => {
+    setEvents(prevEvents => {
+      const updatedEvents = prevEvents.map(event =>
+        event.id === updatedEvent.id ? updatedEvent : event
+      );
       window.localStorage.setItem('events', JSON.stringify(updatedEvents));
       return updatedEvents;
     });
@@ -38,7 +54,7 @@ function App() {
     <>
       <Header />
 
-      <DateInput onAddEvent={addEvent} />
+      <DateInput onAddEvent={addEvent} onEditEvent={editEvent} />
 
       <div className='mt-6 w-[90%] md:w-5/6 mx-auto'>
         <button onClick={clearEvents}
@@ -49,7 +65,7 @@ function App() {
       </div>
 
       <section className='w-5/6 md:w-4/5 mx-auto mt-6 p-2 bg-stone-950 opacity-50 rounded-md'>
-        <EventList events={events} onDeleteEvent={handleDeleteEvent} />
+        <EventList events={events} onDeleteEvent={handleDeleteEvent} onSelect={setSelectedEvent} />
       </section>
 
       <section className='xs:h-auto xs:text-sm xs:size-[95%] lg:size-5/6 mx-auto mt-6 
@@ -60,6 +76,7 @@ function App() {
       <section className='my-6 flex justify-end pe-8'>
         <Footer />
       </section>
+      <EditEventModal selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} onEdit={editEvent} />
     </>
   )
 }
