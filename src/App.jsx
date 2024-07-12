@@ -4,6 +4,7 @@ import DateInput from './components/DateInput'
 import EventList from './components/EventList'
 import Footer from './components/Footer'
 import EditEventModal from './components/EditEventModal'
+import PWABadge from './PWABadge'
 
 import { useState, useEffect } from 'react'
 
@@ -68,15 +69,16 @@ function App() {
         <EventList events={events} onDeleteEvent={handleDeleteEvent} onSelect={setSelectedEvent} />
       </section>
 
-      <section className='xs:h-auto xs:text-sm xs:size-[95%] lg:size-5/6 mx-auto mt-6 
+      <section className='xs:h-auto xs:text-sm xs:size-[90%] lg:size-5/6 mx-auto mt-6 
       xl:mb-6 xs:mb-6 rounded-lg bg-white opacity-80 font-body shadow-xl overflow-x-auto'>
         <Calendar eventList={events} />
       </section>
-
+      <PWABadge />
       <section className='my-6 flex justify-end pe-8'>
         <Footer />
       </section>
       <EditEventModal selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} onEdit={editEvent} />
+
     </>
   )
 }
