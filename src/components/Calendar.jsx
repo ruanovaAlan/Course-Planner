@@ -1,23 +1,24 @@
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from '@fullcalendar/interaction'
-import esLocale from '@fullcalendar/core/locales/es'
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import esLocale from '@fullcalendar/core/locales/es';
 
-import { useAspectRatio } from '../hooks/useAspectRatio'
+import { forwardRef } from 'react';
+import { useAspectRatio } from '../hooks/useAspectRatio';
 
-export default function Calendar({ eventList }) {
-
+const Calendar = forwardRef(({ eventList, pdfWindow }, ref) => {
     const { aspectRatio } = useAspectRatio();
+    const CalendarAspectRatio = pdfWindow ? '1' : aspectRatio
 
     return (
-        <div style={{ minWidth: '600px' }}>
+        <div style={{ minWidth: '600px' }} ref={ref}>
             <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView="timeGridWeek"
                 events={eventList}
                 headerToolbar={false}
-                aspectRatio={aspectRatio}
+                aspectRatio={CalendarAspectRatio}
                 dayHeaderFormat={{ weekday: 'long' }}
                 selectMirror={true}
                 dayMaxEvents={true}
@@ -27,9 +28,9 @@ export default function Calendar({ eventList }) {
                 locale={esLocale}
                 handleWindowResize={true}
                 stickyFooterScrollbar={true}
-
             />
         </div>
-    )
-}
+    );
+});
 
+export default Calendar;

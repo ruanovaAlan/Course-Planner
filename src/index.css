@@ -30,6 +30,24 @@ body {
 .fc ::before {
   box-sizing: border-box;
   border-radius: 8px;
+}
+
+.fc-event-title,
+.fc-event-time {
+  padding: 5px;
+}
+
+.fc-scrollgrid-sync-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.fc-timegrid-slot-label-frame {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
 
 }
 

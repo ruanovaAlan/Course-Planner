@@ -5,11 +5,13 @@ import EventList from './components/EventList'
 import Footer from './components/Footer'
 import EditEventModal from './components/EditEventModal'
 import PWABadge from './PWABadge'
-
-import { useState, useEffect } from 'react'
+import generatePDF, { Resolution } from 'react-to-pdf'
+import { useState, useEffect, useRef } from 'react'
 
 function App() {
   const [events, setEvents] = useState([]);
+  const [pdfWindow, setPdfWindow] = useState(false)
+  const calendarRef = useRef()
 
   useEffect(() => {
     const storedEvents = JSON.parse(window.localStorage.getItem('events'));
@@ -50,6 +52,36 @@ function App() {
     window.localStorage.removeItem('events');
   }
 
+  const options = {
+    filename: 'horario.pdf',
+    method: 'save',
+    resolution: Resolution.HIGH,
+    page: {
+      format: 'letter',
+    },
+    canvas: {
+      qualityRatio: 1
+    },
+    overrides: {
+      pdf: {
+        compress: true
+      },
+      canvas: {
+        useCORS: true
+      }
+    },
+  };
+
+  const handleGeneratePDF = () => {
+    // setPdfWindow(true)
+    // setTimeout(() => {
+    //   generatePDF(calendarRef, options)
+    //   setPdfWindow(false)
+    // }, 1);
+    console.log('pdf!')
+    generatePDF(calendarRef, options)
+  }
+
 
   return (
     <>
@@ -59,7 +91,7 @@ function App() {
 
       <div className='mt-6 w-[90%] md:w-5/6 mx-auto'>
         <button onClick={clearEvents}
-          className="rounded-md bg-sky-950 px-5 py-3.5 text-lg font-medium 
+          className=" rounded-md bg-sky-950 px-5 py-3 text-md font-medium 
         text-white hover:bg-red-700 focus-visible:outline focus-visible:outline-2 
         focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body  shadow-md"
         >Limpiar Eventos</button>
@@ -69,10 +101,17 @@ function App() {
         <EventList events={events} onDeleteEvent={handleDeleteEvent} onSelect={setSelectedEvent} />
       </section>
 
+      <div className='mt-6 w-[90%] md:w-5/6 mx-auto flex justify-start'>
+        <button className="rounded-md bg-sky-950 px-5 py-3 text-md font-medium 
+        text-white hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 
+        focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body  shadow-md" onClick={handleGeneratePDF}>Generar PDF</button>
+      </div>
+
       <section className='xs:h-auto xs:text-sm xs:size-[90%] lg:size-5/6 mx-auto mt-6 
       xl:mb-6 xs:mb-6 rounded-lg bg-white opacity-80 font-body shadow-xl overflow-x-auto'>
-        <Calendar eventList={events} />
+        <Calendar eventList={events} ref={calendarRef} pdfWindow={pdfWindow} />
       </section>
+
       <PWABadge />
       <section className='my-6 flex justify-end pe-8'>
         <Footer />
