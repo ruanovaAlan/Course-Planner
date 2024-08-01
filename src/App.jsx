@@ -5,7 +5,8 @@ import EventList from './components/EventList'
 import Footer from './components/Footer'
 import EditEventModal from './components/EditEventModal'
 import PWABadge from './PWABadge'
-import generatePDF, { Resolution } from 'react-to-pdf'
+import generatePDF from './utility/GeneratePDF'
+
 import { useState, useEffect, useRef } from 'react'
 
 function App() {
@@ -52,34 +53,8 @@ function App() {
     window.localStorage.removeItem('events');
   }
 
-  const options = {
-    filename: 'horario.pdf',
-    method: 'save',
-    resolution: Resolution.HIGH,
-    page: {
-      format: 'letter',
-    },
-    canvas: {
-      qualityRatio: 1
-    },
-    overrides: {
-      pdf: {
-        compress: true
-      },
-      canvas: {
-        useCORS: true
-      }
-    },
-  };
-
   const handleGeneratePDF = () => {
-    // setPdfWindow(true)
-    // setTimeout(() => {
-    //   generatePDF(calendarRef, options)
-    //   setPdfWindow(false)
-    // }, 1);
-    console.log('pdf!')
-    generatePDF(calendarRef, options)
+    generatePDF(calendarRef, setPdfWindow)
   }
 
 
