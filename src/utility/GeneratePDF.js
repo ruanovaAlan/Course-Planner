@@ -6,7 +6,7 @@ const generatePDF = (calendarRef, setPdfWindow) => {
   setTimeout(() => {
     const input = calendarRef.current;
     html2canvas(input, {
-      imageTimeout: 10,
+      imageTimeout: 15,
       scale: 2,
       useCORS: true
     }
@@ -14,9 +14,9 @@ const generatePDF = (calendarRef, setPdfWindow) => {
       const imgData = canvas.toDataURL('image/png');
 
       const pdf = new jsPDF({
-        orientation: 'portrait', // Puedes cambiar a 'landscape' si prefieres
-        unit: 'pt', // Unidad de medida, aquí puntos
-        format: 'letter' // Cambia a 'a4' si lo prefieres
+        orientation: 'portrait',
+        unit: 'pt',
+        format: 'letter'
       });
 
       const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -25,7 +25,6 @@ const generatePDF = (calendarRef, setPdfWindow) => {
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
 
-      // Calcula la altura de la imagen en el PDF manteniendo la relación de aspecto
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgScaledWidth = imgWidth * ratio;
       const imgScaledHeight = imgHeight * ratio;
@@ -34,7 +33,7 @@ const generatePDF = (calendarRef, setPdfWindow) => {
       pdf.save('horario.pdf');
       setPdfWindow(false);
     });
-  }, 100);
+  }, 20);
 };
 
 export default generatePDF;

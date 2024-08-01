@@ -82,8 +82,8 @@ function App() {
         focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body  shadow-md" onClick={handleGeneratePDF}>Generar PDF</button>
       </div>
 
-      <section className='xs:h-auto xs:text-sm xs:size-[90%] lg:size-5/6 mx-auto mt-6 
-      xl:mb-6 xs:mb-6 rounded-lg bg-white opacity-80 font-body shadow-xl overflow-x-auto'>
+      <section className='xs:text-sm xs:size-[90%] lg:size-5/6 mx-auto mt-6 mb-6
+       rounded-lg bg-white opacity-80 font-body shadow-xl overflow-x-auto'>
         <Calendar eventList={events} ref={calendarRef} pdfWindow={pdfWindow} />
       </section>
 

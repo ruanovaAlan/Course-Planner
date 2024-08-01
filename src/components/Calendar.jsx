@@ -6,10 +6,12 @@ import esLocale from '@fullcalendar/core/locales/es';
 
 import { forwardRef } from 'react';
 import { useAspectRatio } from '../hooks/useAspectRatio';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const Calendar = forwardRef(({ eventList, pdfWindow }, ref) => {
     const { aspectRatio } = useAspectRatio();
-    const CalendarAspectRatio = pdfWindow ? '1' : aspectRatio
+    const size = useWindowSize()
+    const CalendarAspectRatio = pdfWindow ? size : aspectRatio
 
     return (
         <div style={{ minWidth: '600px' }} ref={ref}>
