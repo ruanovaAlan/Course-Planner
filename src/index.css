@@ -32,9 +32,12 @@ body {
   border-radius: 8px;
 }
 
-.fc-event-title,
 .fc-event-time {
-  padding: 5px;
+  padding: 5px 0 0 5px;
+}
+
+.fc-event-title {
+  padding-left: 5px;
 }
 
 .fc-scrollgrid-sync-inner {
