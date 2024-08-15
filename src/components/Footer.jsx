@@ -5,7 +5,8 @@ const GIT_LOGO =
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className="flex gap-4 items-center">
+            <span className="font-body font-bold text-sm md:text-lg text-gray-700">Made with ❤️ by Alan Ruanova</span>
             <a href="https://github.com/ruanovaAlan" target="_blank" aria-label="Perfil de GitHub" className="" rel="noreferrer">
                 {GIT_LOGO}
             </a>

@@ -88,7 +88,7 @@ function App() {
       </section>
 
       <PWABadge />
-      <section className='my-6 flex justify-end pe-8'>
+      <section className='my-6 flex justify-center '>
         <Footer />
       </section>
       <EditEventModal selectedEvent={selectedEvent} setSelectedEvent={setSelectedEvent} onEdit={editEvent} />
