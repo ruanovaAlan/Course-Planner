@@ -41,13 +41,13 @@ export default function EventList({ events, onDeleteEvent, onSelect }) {
                             <button onClick={() => onSelect(event)}
                                 className='flex justify-end'
                             >
-                                <motion.img whileHover={{ scale: 1.1 }} transition={{ type: 'spring' }} src={editIcon} alt="Eliminar evento" className='size-3/5 hover:bg-blue-600 p-2 rounded-lg' />
+                                <motion.img whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 400 }} src={editIcon} alt="Eliminar evento" className='size-3/5 hover:bg-blue-600 p-2 rounded-lg' />
                             </button>
 
                             <button onClick={() => handleDelete(event.id)}
                                 className=''
                             >
-                                <motion.img whileHover={{ scale: 1.1 }} transition={{ type: 'spring' }} src={trashIcon} alt="Eliminar evento" className='size-3/5 hover:bg-red-600 rounded-lg' />
+                                <motion.img whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 400 }} src={trashIcon} alt="Eliminar evento" className='size-3/5 hover:bg-red-600 rounded-lg' />
                             </button>
                         </div>
                     </motion.li>

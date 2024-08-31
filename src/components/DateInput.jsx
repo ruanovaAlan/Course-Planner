@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { randomColor } from '../utility/RandomColor.js'
 import { weekDays, select_styles } from '../utility/SelectConfig.js'
 import { v4 as uuidv4 } from 'uuid';
+import { motion } from "framer-motion";
 
 
 export default function DateInput({ onAddEvent }) {
@@ -123,7 +124,7 @@ export default function DateInput({ onAddEvent }) {
                 </div>
 
                 <button type="submit" className="flex items-center" >
-                    <span className="lets-icons--check-fill"></span>
+                    <motion.span whileHover={{ scale: 1.2 }} transition={{ type: "spring", stiffness: 400 }} className="lets-icons--check-fill"></motion.span>
                 </button>
             </section>
 

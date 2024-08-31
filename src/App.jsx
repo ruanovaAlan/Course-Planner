@@ -5,6 +5,7 @@ import EventList from './components/EventList'
 import Footer from './components/Footer'
 import EditEventModal from './components/EditEventModal'
 import generatePDF from './utility/GeneratePDF'
+import { motion } from 'framer-motion'
 
 import { useState, useEffect, useRef } from 'react'
 
@@ -64,11 +65,14 @@ function App() {
       <DateInput onAddEvent={addEvent} onEditEvent={editEvent} />
 
       <div className='mt-6 w-[90%] md:w-5/6 mx-auto'>
-        <button onClick={clearEvents}
+        <motion.button
+          whileHover={{ scale: 1.1, backgroundColor: 'red' }}
+          transition={{ type: 'spring', stiffness: 400 }}
+          onClick={clearEvents}
           className=" rounded-md bg-sky-950 px-5 py-3 text-md font-medium 
-        text-white hover:bg-red-700 focus-visible:outline focus-visible:outline-2 
+        text-white  focus-visible:outline focus-visible:outline-2 
         focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body  shadow-md"
-        >Limpiar Eventos</button>
+        >Limpiar Eventos</motion.button>
       </div>
 
       <section className='w-5/6 md:w-4/5 mx-auto mt-6 p-2 bg-stone-950 opacity-50 rounded-md'>
@@ -76,9 +80,16 @@ function App() {
       </section>
 
       <div className='mt-6 w-[90%] md:w-5/6 mx-auto flex justify-start'>
-        <button className="rounded-md bg-sky-950 px-5 py-3 text-md font-medium 
-        text-white hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 
-        focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body  shadow-md" onClick={handleGeneratePDF}>Generar PDF</button>
+        <motion.button
+          whileHover={{ scale: 1.1, backgroundColor: 'rgb(236, 72, 153)' }}
+          transition={{ type: 'spring', stiffness: 400 }}
+          className="rounded-md bg-sky-950 px-5 py-3 text-md font-medium 
+        text-white focus-visible:outline focus-visible:outline-2 
+        focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body  shadow-md"
+          onClick={handleGeneratePDF}
+        >
+          Generar PDF
+        </motion.button>
       </div>
 
       <section className='xs:text-sm xs:size-[90%] lg:size-5/6 mx-auto mt-6 mb-6
