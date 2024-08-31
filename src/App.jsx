@@ -4,7 +4,6 @@ import DateInput from './components/DateInput'
 import EventList from './components/EventList'
 import Footer from './components/Footer'
 import EditEventModal from './components/EditEventModal'
-import PWABadge from './PWABadge'
 import generatePDF from './utility/GeneratePDF'
 
 import { useState, useEffect, useRef } from 'react'
@@ -87,7 +86,6 @@ function App() {
         <Calendar eventList={events} ref={calendarRef} pdfWindow={pdfWindow} />
       </section>
 
-      <PWABadge />
       <section className='my-6 flex justify-center '>
         <Footer />
       </section>

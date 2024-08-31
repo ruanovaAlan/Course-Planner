@@ -21,6 +21,7 @@
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^1.0.6",
     "autoprefixer": "^10.4.16",
+    "framer-motion": "^11.3.31",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "react": "^18.3.1",

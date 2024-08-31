@@ -1,5 +1,6 @@
 import trashIcon from '../assets/trash-icon.svg';
 import editIcon from '../assets/edit-icon.svg';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function EventList({ events, onDeleteEvent, onSelect }) {
 
@@ -10,9 +11,16 @@ export default function EventList({ events, onDeleteEvent, onSelect }) {
     }
 
     const renderEvents = (
-        <ul role="list" className="text-white divide-y divide-gray-100">
+        <motion.ul
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ type: 'spring' }}
+            role="list"
+            className="text-white divide-y divide-gray-100"
+        >
             {events.map((event) => (
-                <li key={event.id} className="flex justify-between items-center gap-x-2 py-3 font-body">
+                <motion.li layout key={event.id} className="flex justify-between items-center gap-x-2 py-3 font-body">
                     <div className="min-w-0 flex-auto ms-4 ">
                         <p className="text-md font-semibold leading-6 ">{event.title}</p>
                     </div>
@@ -24,24 +32,24 @@ export default function EventList({ events, onDeleteEvent, onSelect }) {
                         <button onClick={() => onSelect(event)}
                             className='flex justify-end'
                         >
-                            <img src={editIcon} alt="Eliminar evento" className='size-3/5 hover:bg-blue-600 p-2 rounded-lg' />
+                            <motion.img whileHover={{ scale: 1.1 }} transition={{ type: 'spring' }} src={editIcon} alt="Eliminar evento" className='size-3/5 hover:bg-blue-600 p-2 rounded-lg' />
                         </button>
 
                         <button onClick={() => handleDelete(event.id)}
                             className=''
                         >
-                            <img src={trashIcon} alt="Eliminar evento" className='size-3/5 hover:bg-red-600 rounded-lg' />
+                            <motion.img whileHover={{ scale: 1.1 }} transition={{ type: 'spring' }} src={trashIcon} alt="Eliminar evento" className='size-3/5 hover:bg-red-600 rounded-lg' />
                         </button>
                     </div>
-                </li>
+                </motion.li>
             ))}
-        </ul >
+        </motion.ul >
     )
 
     return (
-        <>
+        <AnimatePresence>
             {!events.length ? <p className="text-2xl text-center text-white font-body font-bold">No hay eventos</p> : renderEvents}
-        </>
+        </AnimatePresence>
     )
 }
 
