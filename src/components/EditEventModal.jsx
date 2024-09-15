@@ -13,18 +13,18 @@ export default function EditEventModal({ selectedEvent, setSelectedEvent, onEdit
           <motion.dialog
             initial={{ opacity: 0, y: -60 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -60 }}
+            exit={{ opacity: 0, y: -60, transition: 100 }}
             transition={{ type: 'spring', stiffness: 100 }}
             open={!!selectedEvent}
             onClose={() => setSelectedEvent(null)}
             className='flex flex-col justify-between items-center max-h-[90%] w-[90%]  bg-[#03122F]
-            top-[5%] md:top-[20%] rounded-xl shrink-0  px-2 md:px-6 py-12 border-[5px] border-[#6BD1FF]'
+            top-[5%] md:top-[20%] rounded-xl shrink-0  px-2 md:px-6 py-12 border-[5px] border-[#A65DE9]'
           >
             <h1 className='text-white mb-6 text-4xl md:text-5xl font-bold'>Editar Evento:</h1>
             <form method='dialog'>
-              <button formMethod='dialog' className='absolute size-10 top-2 right-1'>
+              <motion.button whileHover={{ scale: 1.2 }} transition={{ type: 'spring', stiffness: 400 }} formMethod='dialog' className='absolute size-10 top-2 right-1'>
                 <img src={cerrarIcon} alt='Ícono de cerrar' />
-              </button>
+              </motion.button>
             </form>
             <EditInputs editingEvent={selectedEvent} onSubmitEdit={setSelectedEvent} onEdit={onEdit} />
           </motion.dialog>
