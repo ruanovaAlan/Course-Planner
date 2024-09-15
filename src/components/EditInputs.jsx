@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Select from 'react-select';
 import { weekDays, select_styles } from '../utility/SelectConfig.js'
+import { motion } from "framer-motion";
 
 
 export default function EditInputs({ onEdit, editingEvent, onSubmitEdit }) {
@@ -96,7 +97,7 @@ export default function EditInputs({ onEdit, editingEvent, onSubmitEdit }) {
       </div>
 
       <button type="submit" className="flex items-center" >
-        <span className="lets-icons--check-fill"></span>
+        <motion.span whileHover={{ scale: 1.2 }} transition={{ type: "spring", stiffness: 400 }} className="lets-icons--check-fill"></motion.span>
       </button>
     </form>
   )

@@ -1,15 +1,20 @@
 import cerrarIcon from '../assets/close-icon.svg'
 import EditInputs from './EditInputs'
+import { motion, AnimatePresence } from 'framer-motion'
 
 
 export default function EditEventModal({ selectedEvent, setSelectedEvent, onEdit }) {
 
   return (
-    <>
+    <AnimatePresence>
       {
         selectedEvent &&
-        <div className='fixed top-0 bottom-0 right-0 left-0 bg-[#03122FC2]'>
-          <dialog
+        <motion.div initial={{ opacity: 0 }} exit={{ opacity: 0 }} animate={{ opacity: 1 }} className='fixed top-0 bottom-0 right-0 left-0 bg-[#03122FC2]'>
+          <motion.dialog
+            initial={{ opacity: 0, y: -60 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -60 }}
+            transition={{ type: 'spring', stiffness: 100 }}
             open={!!selectedEvent}
             onClose={() => setSelectedEvent(null)}
             className='flex flex-col justify-between items-center max-h-[90%] w-[90%]  bg-[#03122F]
@@ -22,9 +27,9 @@ export default function EditEventModal({ selectedEvent, setSelectedEvent, onEdit
               </button>
             </form>
             <EditInputs editingEvent={selectedEvent} onSubmitEdit={setSelectedEvent} onEdit={onEdit} />
-          </dialog>
-        </div>
+          </motion.dialog>
+        </motion.div>
       }
-    </>
+    </AnimatePresence>
   )
 }

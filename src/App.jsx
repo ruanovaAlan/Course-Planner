@@ -66,7 +66,7 @@ function App() {
 
       <div className='mt-6 w-[90%] md:w-5/6 mx-auto'>
         <motion.button
-          whileHover={{ scale: 1.1, backgroundColor: 'red' }}
+          whileHover={{ scale: 1.1, backgroundColor: '#ED2839' }}
           transition={{ type: 'spring', stiffness: 400 }}
           onClick={clearEvents}
           className=" rounded-md bg-sky-950 px-5 py-3 text-md font-medium 
@@ -81,11 +81,10 @@ function App() {
 
       <div className='mt-6 w-[90%] md:w-5/6 mx-auto flex justify-start'>
         <motion.button
-          whileHover={{ scale: 1.1, backgroundColor: 'rgb(236, 72, 153)' }}
+          whileHover={{ scale: 1.1, backgroundColor: '#EC4899' }}
           transition={{ type: 'spring', stiffness: 400 }}
           className="rounded-md bg-sky-950 px-5 py-3 text-md font-medium 
-        text-white focus-visible:outline focus-visible:outline-2 
-        focus-visible:outline-offset-2 focus-visible:outline-indigo-500 font-body  shadow-md"
+        text-white  font-body  shadow-md"
           onClick={handleGeneratePDF}
         >
           Generar PDF
